@@ -13,13 +13,12 @@ public class ArrayStorage {
         for (int index = 0; index < currentSize; index++) {
             storage[index] = null;
         }
+        currentSize = 0;
     }
 
     void save(Resume newResume) {
         if (newResume != null) {
             storage[currentSize++] = newResume;
-        } else {
-            throw new NullPointerException();
         }
     }
 
@@ -29,9 +28,9 @@ public class ArrayStorage {
         }
 
         for (int index = 0; index < currentSize; index++) {
-            Resume tempResume = storage[index];
-            if (tempResume.getUUID().equals(uuid)) {
-                return tempResume;
+            Resume temporaryResume = storage[index];
+            if (temporaryResume.getUUID().equals(uuid)) {
+                return temporaryResume;
             }
         }
 
