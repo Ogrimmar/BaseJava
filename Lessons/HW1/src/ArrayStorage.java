@@ -42,15 +42,16 @@ public class ArrayStorage {
         }
 
         int deleteIndex = SIZE;
-        for (int index = 0; index < currentSize; index++) {
-            if (storage[index].getUUID().equals(uuid)) {
-                deleteIndex = index;
-                currentSize--;
+        for (int i = 0; i < currentSize - 1; i++) {
+            if (storage[i].getUUID().equals(uuid)) {
+                storage[i] = null;
             }
-            if (index > deleteIndex) {
-                storage[index - 1] = storage[index];
+            if (storage[i] == null) {
+                storage[i] = storage[i + 1];
+                storage[i + 1] = null;
             }
         }
+        storage[--currentSize] = null;
     }
 
     /**
