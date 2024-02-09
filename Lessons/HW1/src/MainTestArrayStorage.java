@@ -7,8 +7,11 @@ public class MainTestArrayStorage {
     public static void main(String[] args) {
         Resume firstResume = new Resume();
         firstResume.setUUID("uuid1");
+
         Resume secondResume = new Resume();
+
         secondResume.setUUID("uuid2");
+
         Resume thirdResume = new Resume();
         thirdResume.setUUID("uuid3");
 
