@@ -4,7 +4,6 @@ import java.util.Arrays;
  * Array based storage for Resumes
  */
 public class ArrayStorage {
-
     private static final int SIZE = 10_000;
     Resume[] storage = new Resume[SIZE];
     private int currentSize;
@@ -43,11 +42,9 @@ public class ArrayStorage {
 
         for (int i = 0; i < currentSize; i++) {
             if (storage[i].getUUID().equals(uuid)) {
-                storage[--currentSize] = storage[i] = null;
-            }
-            if (storage[i] == null) {
-                storage[i] = storage[i + 1];
-                storage[i + 1] = null;
+                storage[i] = storage[--currentSize];
+                storage[currentSize] = null;
+                break;
             }
         }
     }
